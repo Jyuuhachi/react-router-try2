@@ -1,21 +1,23 @@
+import Message from "./Message"
+
+function Chat({display, newMessage}) {
+const fuckYou = display.map(message => <Message  key={message.chronoID} content={message.content} sent={message.sent}/>)
 
 
-function Chat({display}) {
-
-
+//console.log(display)
     return(
         <div className="chat">
             <ul>
-                {display.map(message => {
-                    <li key={message.id}>
-                        <p>{message.content}</p>
-                    </li>
-                })}
+                {display.map(message => <Message  key={message.chronoID} content={message.content} sent={message.sent}/>
+                )}
             </ul>
-            <form>
-            <input type="text" name="text" value={text} onChange={setText}/>
-            <input type="submit" value="Send" />
+            <form onSubmit={e=> {e.preventDefault()
+                newMessage(e.target.message.value)}}>
+                <input type="text" name="message"></input>
+                <input type="submit"></input>
             </form>
         </div>
     );
 }
+
+export default Chat

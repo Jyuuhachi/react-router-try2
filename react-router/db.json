@@ -1,0 +1,130 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Johnny Bravo",
+      "messages": [
+        {
+          "sent": false,
+          "content": "Hey can you help me with this code project?",
+          "chronoID": 0,
+          "id": 2
+        },
+        {
+          "sent": true,
+          "content": "I don't talk to dudes.",
+          "chronoID": 1,
+          "id": 2
+        },
+        {
+          "sent": false,
+          "content": "me llamo grahf... El Buscador de Poder.",
+          "chronoID": 0,
+          "id": 3
+        },
+        {
+          "sent": true,
+          "content": "cool.",
+          "chronoID": 1,
+          "id": 3
+        },
+        {
+          "sent": true,
+          "content": "test",
+          "chronoID": 2,
+          "id": 3
+        },
+        {
+          "sent": true,
+          "content": "checking",
+          "chronoID": 3,
+          "id": 3
+        },
+        {
+          "sent": true,
+          "content": "holy shit I can talk",
+          "chronoID": 2,
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Gene Simmons",
+      "messages": [
+        {
+          "sent": true,
+          "content": "Hey can you help me with this code project?",
+          "chronoID": 0,
+          "id": 1
+        },
+        {
+          "sent": false,
+          "content": "I don't talk to dudes.",
+          "chronoID": 1,
+          "id": 1
+        },
+        {
+          "sent": false,
+          "content": "me llamo grahf... El Buscador de Poder.",
+          "chronoID": 0,
+          "id": 3
+        },
+        {
+          "sent": true,
+          "content": "Who the hell is this?",
+          "chronoID": 1,
+          "id": 3
+        },
+        {
+          "sent": true,
+          "content": "holy shit I can talk",
+          "chronoID": 2,
+          "id": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "El Buscador de Poder",
+      "messages": [
+        {
+          "sent": true,
+          "content": "me llamo grahf... El Buscador de Poder.",
+          "chronoID": 0,
+          "id": 1
+        },
+        {
+          "sent": false,
+          "content": "cool.",
+          "chronoID": 1,
+          "id": 1
+        },
+        {
+          "sent": true,
+          "content": "me llamo grahf... El Buscador de Poder.",
+          "chronoID": 0,
+          "id": 2
+        },
+        {
+          "sent": false,
+          "content": "Who the hell is this?",
+          "chronoID": 1,
+          "id": 2
+        },
+        {
+          "sent": true,
+          "content": "test",
+          "chronoID": 2,
+          "id": 1
+        },
+        {
+          "sent": true,
+          "content": "checking",
+          "chronoID": 3,
+          "id": 1
+        }
+      ]
+    }
+  ]
+}
