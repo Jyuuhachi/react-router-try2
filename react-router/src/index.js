@@ -84,6 +84,18 @@ export default function App () {
       return (currentMessager)
   }
 
+  function addUser(contact){
+    fetch(URL,{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(contact)
+    })
+    .then(res=>res.json())
+    .then(newContact=>setUserList([...userList, newContact]))
+  }
+
   function renderMessages(userID=user, accountID=account, data=userList) {
     console.log(userID)
     console.log(accountID)
@@ -225,7 +237,7 @@ export default function App () {
   return (
     <BrowserRouter>
     <Routes>
-    <Route path="/" element={<Navigation changeUser={changeUser} userList={userList}/>}>
+    <Route path="/" element={<Navigation changeUser={changeUser} userList={userList} addUser={addUser}/>}>
       <Route index element={<DefaultPage/>}/>
       <Route path="contacts/:contactID" element={<Contacts userList={userList} user={user} changeAccount={changeAccount}/>}/>
       <Route path="contacts/:contactID/chat" element={<Chat  userList={userList} user={user} account={account} changeChronoID={changeChronoID} newMessage={newMessage}/>}/>

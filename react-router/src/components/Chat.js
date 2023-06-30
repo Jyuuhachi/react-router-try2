@@ -41,7 +41,7 @@ return(
               newMessage(e.target.message.value)
               e.target.reset()}}>
                 <input type="text" name="message"></input>
-                <input type="submit"></input>
+                <input type="submit" value="Send"></input>
             </form>
         </div>
     );

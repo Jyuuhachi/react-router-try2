@@ -9,7 +9,7 @@ const URL = "http://localhost:3000/data"
 
 
 
-function Navigation({changeUser, userList}) {
+function Navigation({changeUser, userList, addUser}) {
 /*
   const [userList, setUserList] = React.useState([])
   const [displayMessages, setDisplayMessages] = React.useState([])
@@ -164,6 +164,14 @@ function Navigation({changeUser, userList}) {
 
   return (
     <div>
+      <div className="userForm">
+      <form onSubmit={e=> {e.preventDefault() 
+              addUser({name:e.target.newUser.value, messages:[]})
+              e.target.reset()}}>
+                <input type="text" name="newUser"></input>
+                <input type="submit" value="Add Contact"></input>
+            </form>
+      </div>
     <div className="userList">
       <ul>
     {userList.map(item => (
