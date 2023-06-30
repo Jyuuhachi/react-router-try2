@@ -2,31 +2,78 @@ import logo from './logo.svg';
 import React from 'react';
 import Nav from './components/Nav'
 import Chat from './components/Chat'
-import Form from './components/Form'
-import './App.css';
+import Speaker from './components/Speaker'
+import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation } from "react-router-dom";
+
 const URL = "http://localhost:3000/data"
 
-function App() {
 
+
+function Navigation({changeUser, userList}) {
+/*
   const [userList, setUserList] = React.useState([])
   const [displayMessages, setDisplayMessages] = React.useState([])
   const [user, setUser] = React.useState(1)
   const [chronoID, setChronoID] = React.useState(0)
   const [account, setAccount] = React.useState(2)
 
+
+  function extractStates() {
+    const allStates = {Userlist:userList, Displaymessages:displayMessages, User:user, ChronoID:chronoID, Account:account}
+    const allSets = {setuserlist:setUserList, setdisplaymessages:setDisplayMessages, setuser:setUser, setchronoid:setChronoID, setaccount:setAccount}
+    return([allStates, allSets])
+  }
+  
+  function chatSwitch(ID, nav) {
+    const onegai = ID
+      if (nav === "userList") {
+        console.log("nav user list is triggering")
+        console.log(nav)
+        console.log(onegai)
+        console.log(account)
+        if(onegai === account) {
+          console.log("I'm the if")
+          console.log(user)
+          console.log(account)
+        }
+        else {
+        console.log("I'm the else")
+        setUser(onegai)
+        renderMessages(onegai, account, userList)
+        }
+      }
+      if (nav === "accountList") {
+        console.log("nav account list is triggering")
+        console.log(nav)
+        console.log(onegai)
+        console.log(user)
+        if(onegai === user) {
+          console.log("I'm the if")
+          console.log(user)
+          console.log(account)
+        }
+        else {
+        console.log("I'm the else")
+        setAccount(onegai)
+        renderMessages(user, onegai, userList)
+        }
+      }
+  }
+  
   React.useEffect(() => {fetch(URL).then(response=>response.json()).then(data => {setUserList(data)
      renderMessages(1,2,data)})}, [])
-
+  
   const navUserList = userList.map(item => ({name:item.name, id:item.id}))
   const navAccountList = userList.map(item => ({name:item.name, id:item.id}))
-
+  
+  
   function renderMessages(userID, accountID, data=userList) {
     let currentMessager
     const toSort = []
     const toDisplay = []
     //console.log(userID)
     //console.log(accountID)
-
+  
       for (let i=0;i<data.length;i++) {
         if (data[i].id === userID) {
           currentMessager = data[i]
@@ -51,8 +98,10 @@ function App() {
       //console.log(toSort)
       //console.log(toDisplay)
       setDisplayMessages(toDisplay)
+  
+      return(toDisplay)
   }
-
+  
   function newMessage(message) {
     const activeSpeaker = user
     const activeListener = account
@@ -63,14 +112,14 @@ function App() {
     let newReciever
     console.log(newUserList)
     console.log("I trigger at the start of newMessage")
-
+  
     for (let i=0;i<newUserList.length;i++) {
         console.log("for loop adding sent message triggering")
         //console.log(newUserList[i])
         //console.log(activeSpeaker)
-
+  
       if (newUserList[i].id === activeSpeaker) {
-
+  
         console.log("newUserList is being updated for active speaker")
         newUserList[i].messages.push(sentMessage)
         //console.log(newUserList[i].messages)
@@ -110,55 +159,23 @@ function App() {
     renderMessages(user, account)
   }
 
-  function chatSwitch(ID, nav) {
-    const onegai = ID
-      if (nav === "userList") {
-        console.log("nav user list is triggering")
-        console.log(nav)
-        console.log(onegai)
-        console.log(account)
-        if(onegai === account) {
-          console.log("I'm the if")
-          console.log(user)
-          console.log(account)
-        }
-        else {
-        console.log("I'm the else")
-        setUser(onegai)
-        renderMessages(onegai, account, userList)
-        }
-      }
-      if (nav === "accountList") {
-        console.log("nav account list is triggering")
-        console.log(nav)
-        console.log(onegai)
-        console.log(user)
-        if(onegai === user) {
-          console.log("I'm the if")
-          console.log(user)
-          console.log(account)
-        }
-        else {
-        console.log("I'm the else")
-        setAccount(onegai)
-        renderMessages(user, onegai, userList)
-        }
-      }
-  }
+*/
+//<Nav list={navUserList} nav="userList" setUser={setUser} eventHandler={chatSwitch}/>
 
   return (
     <div>
     <div className="userList">
-      <Nav list={navUserList} nav="userList" setUser={setUser} eventHandler={chatSwitch}/>
+      <ul>
+    {userList.map(item => (
+      <Speaker user={item} changeUser={changeUser}/>
+              ))}
+              </ul>
     </div>
-    <div className="accountList">
-      <Nav list={navAccountList} nav="accountList" setAccount={setAccount} eventHandler={chatSwitch}/>
-    </div>
-    <div className="chat">
-      <Chat display={displayMessages} newMessage={newMessage}/>
+    <div className="display-area">
+        <Outlet />
     </div>
     </div>
   );
 }
 
-export default App;
+export default Navigation;

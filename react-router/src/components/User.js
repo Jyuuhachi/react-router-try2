@@ -1,24 +1,35 @@
 import React from 'react'
 import './user.css'
-function User({name, setUser, setAccount, nav, eventHandler, myID}) {
+import {NavLink, Link} from "react-router-dom"
 
-    const [isSelected, setIsSelected] = React.useState(false)
-    if (nav === "accountList") {
+function User({account, user, name, changeAccount}) {
+
+    //const [isSelected, setIsSelected] = React.useState(false)
         return(
-            <div className={isSelected ? "selected":"not-selected"} identifier={myID} onClick={e=>{eventHandler(myID, nav)
-            setIsSelected(selected => !selected)}}>
-                <p>{name}</p>
-            </div>
+<li key={account.id} identifier={account.id} speaker={account} onClick={e=>{
+        console.log(user)
+        changeAccount(account)}}>
+                                      <NavLink
+                    to={`chat`}
+                    className={({ isActive, isPending }) =>
+                    isActive
+                    ? "active"
+                    : isPending
+                    ? "pending"
+                    : ""
+                  }>
+                  <Link to={`chat`}>
+                    {account.name ? (
+                      <>
+                        {account.name}
+                      </>
+                    ) : (
+                      <i>No Name</i>
+                      )}{" "}
+                  </Link>
+                        </NavLink>
+                </li>
         );
     }
-    if (nav === "userList") {
-        return(
-            <div className={isSelected ? "selected":"not-selected"} identifier={myID} onClick={e=>{eventHandler(myID, nav)
-                setIsSelected(selected => !selected)}}>
-                <p>{name}</p>
-            </div>
-        );
-    }
-}
-
+    
 export default User
