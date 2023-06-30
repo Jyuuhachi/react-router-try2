@@ -381,3 +381,84 @@ i {
   width: 100%;
 }
 
+.userList {
+  background-color: lightgreen;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  width: 99%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.accountList {
+  background-color: lightcoral;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(209, 52, 52, 0.3);
+}
+.chat {
+  background-color: lightblue;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+.messageDiv{
+  height: 550px;
+  width: 100%;
+  overflow: auto;
+}
+
+
+.chatForm {
+  height: 30%;
+  background-color: white;
+}
+
+
+.avi {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.avi p {
+  padding-right: 5px;
+}
+
+.avi p:hover {
+  font-size: 20px;
+}
+
+.account-items p:hover{
+  font-size: 20px;
+}
+
+
+#selected {
+  color: red;
+}
+#not-selected {
+  color: blue;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bottom-container{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 10px;
+  
+  
+}
+.form{
+  justify-content: center;
+}
+
+
