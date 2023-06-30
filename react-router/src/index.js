@@ -84,6 +84,18 @@ export default function App () {
       return (currentMessager)
   }
 
+  function addUser(contact){
+    fetch(URL,{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(contact)
+    })
+    .then(res=>res.json())
+    .then(contact=>setUserList([...userList, contact]))
+  }
+
   function renderMessages(userID=user, accountID=account, data=userList) {
     console.log(userID)
     console.log(accountID)
