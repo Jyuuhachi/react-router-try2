@@ -162,6 +162,18 @@ function Navigation({changeUser, userList}) {
 */
 //<Nav list={navUserList} nav="userList" setUser={setUser} eventHandler={chatSwitch}/>
 
+function addUser(contact){
+  fetch(URL,{
+    method:"POST",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(contact)
+  })
+  .then(res=>res.json())
+  .then(contact=>setUserList([...userList, contact]))
+}
+
   return (
     <div>
     <div className="userList">
