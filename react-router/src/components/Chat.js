@@ -33,7 +33,7 @@ function Chat({user, account, userList, changeChronoID, newMessage}) {
 
 return(
     <div className="chat">
-            <ul>
+            <ul className="messageDiv">
             {toDisplay.map(message => <Message  key={message.chronoID} content={message.content} sent={message.sent}/>
             )}
             </ul>

@@ -29,19 +29,7 @@
           "id": 3
         },
         {
-          "sent": true,
-          "content": "test",
-          "chronoID": 2,
-          "id": 3
-        },
-        {
-          "sent": true,
-          "content": "checking",
-          "chronoID": 3,
-          "id": 3
-        },
-        {
-          "sent": true,
+          "sent": false,
           "content": "holy shit I can talk",
           "chronoID": 2,
           "id": 2
@@ -53,7 +41,7 @@
           "id": 2
         },
         {
-          "sent": true,
+          "sent": false,
           "content": "*isopod noises*",
           "chronoID": 0,
           "id": 4
@@ -101,13 +89,7 @@
           "id": 1
         },
         {
-          "sent": true,
-          "content": "fuck off",
-          "chronoID": 2,
-          "id": 3
-        },
-        {
-          "sent": true,
+          "sent": false,
           "content": "that's great, but you still ain't no chick",
           "chronoID": 3,
           "id": 1
@@ -141,24 +123,6 @@
           "content": "Who the hell is this?",
           "chronoID": 1,
           "id": 2
-        },
-        {
-          "sent": true,
-          "content": "test",
-          "chronoID": 2,
-          "id": 1
-        },
-        {
-          "sent": true,
-          "content": "checking",
-          "chronoID": 3,
-          "id": 1
-        },
-        {
-          "sent": true,
-          "content": "fuck off",
-          "chronoID": 2,
-          "id": 2
         }
       ]
     },
@@ -172,7 +136,7 @@
           "id": 1
         },
         {
-          "sent": true,
+          "sent": false,
           "content": "what the",
           "chronoID": 1,
           "id": 1

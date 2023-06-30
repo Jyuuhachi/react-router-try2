@@ -182,7 +182,7 @@ export default function App () {
     const activeListener = account
     const newUserList = userList
     const sentMessage = {sent:true, content:message, chronoID:(chronoID+1), id:account}
-    const recievedMessage = {sent:true, content:message, chronoID:(chronoID+1), id:user}
+    const recievedMessage = {sent:false, content:message, chronoID:(chronoID+1), id:user}
     let newSender
     let newReciever
     console.log(newUserList)
