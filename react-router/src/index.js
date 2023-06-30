@@ -211,7 +211,7 @@ export default function App () {
         "Content-Type":"application/json"
     },
     body: JSON.stringify({messages:newSender})
-  }).then(response=>response.json()).then(data=>console.log(data))
+  }).then(response=>response.json()).then(data=>displayChat(data, true))
   fetch(`${URL}/${account.toString()}`, {method: "PATCH", headers:{
     "Content-Type":"application/json"
     },
@@ -219,7 +219,6 @@ export default function App () {
   }).then(response=>response.json()).then(data=>console.log(data))
     setUserList(newUserList)
     console.log("I trigger at the end of newMessage")
-    renderMessages(user, account)
   }
 
 
@@ -229,7 +228,7 @@ export default function App () {
     <Route path="/" element={<Navigation changeUser={changeUser} userList={userList}/>}>
       <Route index element={<DefaultPage/>}/>
       <Route path="contacts/:contactID" element={<Contacts userList={userList} user={user} changeAccount={changeAccount}/>}/>
-      <Route path="contacts/:contactID/chat" element={<Chat  userList={userList} user={user} account={account} changeChronoID={changeChronoID}/>}/>
+      <Route path="contacts/:contactID/chat" element={<Chat  userList={userList} user={user} account={account} changeChronoID={changeChronoID} newMessage={newMessage}/>}/>
     </Route>
     </Routes>
     </BrowserRouter>

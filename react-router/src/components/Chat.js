@@ -4,7 +4,7 @@ import {renderMessages, newMessage} from '../data-functions'
 
 
 
-function Chat({user, account, userList, changeChronoID}) {
+function Chat({user, account, userList, changeChronoID, newMessage}) {
         let currentMessager
         const toSort = []
         const toDisplay = []
@@ -37,7 +37,9 @@ return(
             {toDisplay.map(message => <Message  key={message.chronoID} content={message.content} sent={message.sent}/>
             )}
             </ul>
-            <form onSubmit={e=> {e.preventDefault()}}>
+            <form onSubmit={e=> {e.preventDefault() 
+              newMessage(e.target.message.value)
+              e.target.reset()}}>
                 <input type="text" name="message"></input>
                 <input type="submit"></input>
             </form>
