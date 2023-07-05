@@ -22,7 +22,7 @@ let contactList = userList.filter(item => {
         return(
             <div className="userList">
                 <p>proving that something works</p>
-                <ul>
+                <ul className="avi">
                 {contactList.map(item => <User name={item.name} key={item.id} changeAccount={changeAccount} user={user} account={item}/>)}
                 </ul>
             </div>

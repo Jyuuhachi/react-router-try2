@@ -4,8 +4,8 @@ function Message ({content, sent}) {
 
 
     return(
-        <li>
-            <p>{content}</p>
+        <li className="message">
+            <p className={sent ? "sent":"recieved"}>{content}</p>
         </li>
     )
 }

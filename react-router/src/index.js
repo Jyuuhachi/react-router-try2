@@ -93,7 +93,8 @@ export default function App () {
       body: JSON.stringify(contact)
     })
     .then(res=>res.json())
-    .then(contact=>setUserList([...userList, contact]))
+    .then(newContact=>setUserList([...userList, newContact]))
+
   }
 
   function renderMessages(userID=user, accountID=account, data=userList) {
@@ -182,7 +183,7 @@ export default function App () {
     const activeListener = account
     const newUserList = userList
     const sentMessage = {sent:true, content:message, chronoID:(chronoID+1), id:account}
-    const recievedMessage = {sent:true, content:message, chronoID:(chronoID+1), id:user}
+    const recievedMessage = {sent:false, content:message, chronoID:(chronoID+1), id:user}
     let newSender
     let newReciever
     console.log(newUserList)
@@ -223,7 +224,7 @@ export default function App () {
         "Content-Type":"application/json"
     },
     body: JSON.stringify({messages:newSender})
-  }).then(response=>response.json()).then(data=>console.log(data))
+  }).then(response=>response.json()).then(data=>displayChat(data, true))
   fetch(`${URL}/${account.toString()}`, {method: "PATCH", headers:{
     "Content-Type":"application/json"
     },
@@ -231,17 +232,16 @@ export default function App () {
   }).then(response=>response.json()).then(data=>console.log(data))
     setUserList(newUserList)
     console.log("I trigger at the end of newMessage")
-    renderMessages(user, account)
   }
 
 
   return (
     <BrowserRouter>
     <Routes>
-    <Route path="/" element={<Navigation changeUser={changeUser} userList={userList}/>}>
+    <Route path="/" element={<Navigation changeUser={changeUser} userList={userList} addUser={addUser}/>}>
       <Route index element={<DefaultPage/>}/>
       <Route path="contacts/:contactID" element={<Contacts userList={userList} user={user} changeAccount={changeAccount}/>}/>
-      <Route path="contacts/:contactID/chat" element={<Chat  userList={userList} user={user} account={account} changeChronoID={changeChronoID}/>}/>
+      <Route path="contacts/:contactID/chat" element={<Chat  userList={userList} user={user} account={account} changeChronoID={changeChronoID} newMessage={newMessage}/>}/>
     </Route>
     </Routes>
     </BrowserRouter>
